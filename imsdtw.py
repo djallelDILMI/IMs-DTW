@@ -74,7 +74,7 @@ class IMSDTW():
 	
 	"""
 	def __init__(self,aggregation_step = 2, radius = 0,
-				 adding_radius = 'before',dist = None):
+			adding_radius = 'before',dist = None):
 		self.aggregation_step = aggregation_step
 		self.radius           = radius
 		self.dist             = self.__squared_difference if dist is None else dist
@@ -173,8 +173,7 @@ class IMSDTW():
 		# data preparation : reshape to match a length=power of aggregation_step
 		length = max(len(x),len(y))
 		length = self.aggregation_step**(math.floor(
-		
-									math.log(length,self.aggregation_step))+1)
+						math.log(length,self.aggregation_step))+1)
 		# zero padding to fit an aggregation step's pow length
 		x, y = self.__zero_pad(x,length), self.__zero_pad(y,length) 
 		return x, y
